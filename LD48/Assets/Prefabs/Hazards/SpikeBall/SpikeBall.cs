@@ -18,8 +18,7 @@ public class SpikeBall : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            //TODO kill player
-			Debug.Log("SpikeBall hit player");
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().die();
         }
     }
 }

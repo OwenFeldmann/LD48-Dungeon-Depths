@@ -18,8 +18,7 @@ public class Arrow : MonoBehaviour
         // When player collides with trigger, they take damage, and projectile disappears
         if(collision.gameObject.tag == "Player")
         {
-            //TODO kill player
-			Debug.Log("Arrow hit player");
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().die();
             Destroy(this.gameObject);
         }
 		else if(collision.gameObject.tag == "Ground")

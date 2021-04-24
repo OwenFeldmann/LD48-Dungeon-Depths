@@ -24,8 +24,7 @@ public class Boulder : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            //TODO kill player
-			Debug.Log("Boulder hit player");
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().die();
         }
     }
 }

@@ -17,8 +17,7 @@ public class IronMaiden : MonoBehaviour
 		}
 		else if(collision.gameObject.tag == "Player")
 		{
-			Debug.Log("IronMaiden kills player");
-			//TODO kill player
+			GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().die();
 		}
 	}
 	

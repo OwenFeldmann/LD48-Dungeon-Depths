@@ -21,7 +21,7 @@ public class Button : MonoBehaviour
 	{
 		pressed = true;
 		GetComponent<Animator>().SetBool("pressed", pressed);
-		Debug.Log(Instantiate(boulder, new Vector3(transform.position.x, transform.position.y + spawnHeight, transform.position.z), Quaternion.identity));
+		Instantiate(boulder, new Vector3(transform.position.x, transform.position.y + spawnHeight, transform.position.z), Quaternion.identity);
 		
 		yield return new WaitForSeconds(5f);
 		

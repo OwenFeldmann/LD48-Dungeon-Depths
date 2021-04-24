@@ -27,8 +27,7 @@ public class Bat : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            //TODO kill player
-			Debug.Log("Bat hit player");
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().die();
         }
 		else if(collision.gameObject.tag == "Ground")
 		{
