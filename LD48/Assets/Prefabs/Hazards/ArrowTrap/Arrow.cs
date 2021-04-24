@@ -9,7 +9,7 @@ public class Arrow : MonoBehaviour
     {
         
 		Rigidbody2D rb = GetComponent<Rigidbody2D>();
-		rb.velocity = new Vector2(-5, 0);
+		rb.velocity = new Vector2(-5 * transform.parent.localScale.x, 0);
 		Destroy(gameObject, 1.0f);
     }
 	
