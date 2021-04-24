@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Button : MonoBehaviour
 {
-	[SerializeField] private Boulder boulder;
-	[SerializeField] private float spawnHeight = 8;
+	[SerializeField] Boulder boulder;
+	[SerializeField] float spawnHeight = 8;
 	
 	public bool pressed = false;
 	

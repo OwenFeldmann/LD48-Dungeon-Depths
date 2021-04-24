@@ -5,8 +5,8 @@ using UnityEngine;
 public class SpikeBall : MonoBehaviour
 {
 	
-	[SerializeField] private Rigidbody2D rbChain;
-	[SerializeField] private float rotationSpeed;
+	[SerializeField] Rigidbody2D rbChain;
+	[SerializeField] float rotationSpeed;
 	
     // Start is called before the first frame update
     void Start()

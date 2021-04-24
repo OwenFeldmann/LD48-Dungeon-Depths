@@ -6,7 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 	
-	[SerializeField] private LayerMask groundMask;
+	[SerializeField] LayerMask groundMask;
 	
 	private enum State {IDLE, WALKING};
 	

@@ -5,27 +5,16 @@ using UnityEngine;
 public class IronMaiden : MonoBehaviour
 {
 	
+	[SerializeField] LayerMask groundMask;
+	
 	private float jumpForceY = 5;
 	private float jumpforceX = 3;
-	private bool onGround = true;
 	
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-		if(collision.gameObject.tag == "Ground")
-		{
-			onGround = true;
-		}
-		else if(collision.gameObject.tag == "Player")
+		if(collision.gameObject.tag == "Player")
 		{
 			GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().die();
-		}
-	}
-	
-	private void OnCollisionExit2D(Collision2D collision)
-	{
-		if(collision.gameObject.tag == "Ground")
-		{
-			onGround = false;
 		}
 	}
 	
@@ -33,7 +22,7 @@ public class IronMaiden : MonoBehaviour
 	{
 		if(collision.gameObject.tag == "Player")
 		{
-			if(onGround)
+			if(OnGround())
 			{
 				if(collision.gameObject.transform.position.x < transform.position.x)
 				{
@@ -47,5 +36,10 @@ public class IronMaiden : MonoBehaviour
 				}
 			}
 		}
+	}
+	
+	private bool OnGround()
+	{
+		return Physics2D.Raycast(transform.position, new Vector2(0, -1), 1.1f, groundMask).collider != null;
 	}
 }

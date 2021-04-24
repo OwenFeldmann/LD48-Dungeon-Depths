@@ -5,10 +5,9 @@ using UnityEngine;
 public class ArrowTrap : MonoBehaviour
 {
     
-    [Tooltip("Where arrows")]
-	[SerializeField] private Transform arrowSpawnPoint;
-    [Tooltip("Arrow prefab")]
-	[SerializeField] private Arrow arrow;
+	[SerializeField] Transform arrowSpawnPoint;
+	[SerializeField] Arrow arrow;
+	
 	private bool canShoot = true;
 	
 	private void OnTriggerEnter2D(Collider2D collision)
