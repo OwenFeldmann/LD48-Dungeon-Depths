@@ -2,29 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boulder : MonoBehaviour
+public class SpikeBall : MonoBehaviour
 {
+	
+	[SerializeField] private Rigidbody2D rbChain;
+	[SerializeField] private float rotationSpeed;
+	
     // Start is called before the first frame update
     void Start()
     {
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-		rb.angularVelocity = 500f * Random.Range(.5f, 1f) * (Random.Range(0, 2) * 2 - 1);
+        rbChain.angularVelocity = rotationSpeed;
     }
-	
-	void Update()
-	{
-		if(GetComponent<Rigidbody2D>().velocity.magnitude == 0f)
-		{
-			Destroy(this.gameObject);
-		}
-	}
-	
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Player")
         {
             //TODO kill player
-			Debug.Log("Boulder hit player");
+			Debug.Log("SpikeBall hit player");
         }
     }
 }

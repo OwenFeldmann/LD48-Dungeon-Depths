@@ -11,9 +11,9 @@ public class ArrowTrap : MonoBehaviour
 	[SerializeField] private Arrow arrow;
 	private bool canShoot = true;
 	
-	private void OnTriggerEnter2D(Collider2D collider)
+	private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(canShoot)
+        if(canShoot && collision.gameObject.tag == "Player")
 		{
 			Instantiate(arrow, new Vector3(arrowSpawnPoint.position.x, arrowSpawnPoint.position.y, arrowSpawnPoint.position.z), Quaternion.identity, transform);
 			canShoot = false;

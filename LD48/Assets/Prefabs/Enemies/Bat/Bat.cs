@@ -25,7 +25,6 @@ public class Bat : MonoBehaviour
 	
 	private void OnTriggerEnter2D(Collider2D collision)
     {
-        // When player collides with trigger, they take damage, and projectile disappears
         if(collision.gameObject.tag == "Player")
         {
             //TODO kill player
