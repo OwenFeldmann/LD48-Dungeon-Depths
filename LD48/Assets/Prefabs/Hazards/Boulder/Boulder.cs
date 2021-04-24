@@ -9,6 +9,7 @@ public class Boulder : MonoBehaviour
     {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
 		rb.angularVelocity = 500f * Random.Range(.5f, 1f) * (Random.Range(0, 2) * 2 - 1);
+		rb.velocity = new Vector2(0, -1);
     }
 	
 	void Update()
