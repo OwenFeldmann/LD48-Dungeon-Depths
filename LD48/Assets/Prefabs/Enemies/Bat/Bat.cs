@@ -13,6 +13,7 @@ public class Bat : MonoBehaviour
 	void Start()
     {
 		rb = GetComponent<Rigidbody2D>();
+		StartCoroutine(Squeak());
     }
 	
     // Update is called once per frame
@@ -22,6 +23,19 @@ public class Bat : MonoBehaviour
 		
 		rb.velocity = new Vector2(direction * moveSpeed, 1.5f * Mathf.Sin(counter / 5));
     }
+	
+	private IEnumerator Squeak()
+	{
+		while(true)
+		{
+			yield return new WaitForSeconds(Random.Range(2f, 7f));
+			if((transform.position - GameObject.FindGameObjectWithTag("Player").transform.position).magnitude <= 10)
+			{
+				GetComponent<AudioSource>().Play();
+			}
+		
+		}
+	}
 	
 	private void OnTriggerEnter2D(Collider2D collision)
     {

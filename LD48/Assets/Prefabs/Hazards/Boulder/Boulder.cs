@@ -27,4 +27,16 @@ public class Boulder : MonoBehaviour
             GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().die();
         }
     }
+	
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		if(collision.gameObject.tag == "Ground")
+		{
+			if((transform.position - GameObject.FindGameObjectWithTag("Player").transform.position).magnitude <= 10)
+			{
+				GetComponent<AudioSource>().Play();
+			}
+		}
+	}
+	
 }

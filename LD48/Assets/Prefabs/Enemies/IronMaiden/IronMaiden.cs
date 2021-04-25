@@ -16,6 +16,13 @@ public class IronMaiden : MonoBehaviour
 		{
 			GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().die();
 		}
+		else if(collision.gameObject.tag == "Ground")
+		{
+			if((transform.position - GameObject.FindGameObjectWithTag("Player").transform.position).magnitude <= 10)
+			{
+				GetComponent<AudioSource>().Play();
+			}
+		}
 	}
 	
 	private void OnTriggerStay2D(Collider2D collision)
@@ -40,6 +47,6 @@ public class IronMaiden : MonoBehaviour
 	
 	private bool OnGround()
 	{
-		return Physics2D.Raycast(transform.position, new Vector2(0, -1), 1.1f, groundMask).collider != null;
+		return Physics2D.Raycast(transform.position, new Vector2(0, -1), 1.01f, groundMask).collider != null;
 	}
 }

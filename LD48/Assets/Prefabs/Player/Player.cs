@@ -16,14 +16,21 @@ public class Player : MonoBehaviour
 	private Rigidbody2D rb;
 	private Animator anim;
 	
+	private bool dead = false;
+	
 	public void die()
 	{
-		StartCoroutine(Die());
+		if(!dead)
+		{
+			StartCoroutine(Die());
+		}
 	}
 	
 	private IEnumerator Die()
 	{
+		dead = true;
 		GameObject.FindGameObjectWithTag("MainCamera").transform.position = new Vector3(0, 0, 1);
+		GetComponent<AudioSource>().Play();
 		
 		yield return new WaitForSeconds(0.75f);
 		

@@ -16,6 +16,7 @@ public class ArrowTrap : MonoBehaviour
 		{
 			Instantiate(arrow, new Vector3(arrowSpawnPoint.position.x, arrowSpawnPoint.position.y, arrowSpawnPoint.position.z), Quaternion.identity, transform);
 			canShoot = false;
+			GetComponent<AudioSource>().Play();
 		}
     }
 	
