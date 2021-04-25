@@ -42,6 +42,11 @@ public class Player : MonoBehaviour
 		
 		DoControls();
         
+		if(transform.position.y <= -300)
+		{//Too deep, time to restart
+			SceneManager.LoadScene("Level0");
+		}
+		
     }
 	
 	private void DoControls()
