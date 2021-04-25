@@ -17,6 +17,15 @@ public class Player : MonoBehaviour
 	
 	public void die()
 	{
+		StartCoroutine(Die());
+	}
+	
+	private IEnumerator Die()
+	{
+		GameObject.FindGameObjectWithTag("MainCamera").transform.position = new Vector3(0, 0, 1);
+		
+		yield return new WaitForSeconds(0.75f);
+		
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 	
