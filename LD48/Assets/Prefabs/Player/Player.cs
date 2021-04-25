@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
 		dead = true;
 		GameObject.FindGameObjectWithTag("MainCamera").transform.position = new Vector3(0, 0, 1);
 		GetComponent<AudioSource>().Play();
+		GameObject.Find("Overlay").GetComponent<Overlay>().PlayerDied();
 		
 		yield return new WaitForSeconds(0.75f);
 		

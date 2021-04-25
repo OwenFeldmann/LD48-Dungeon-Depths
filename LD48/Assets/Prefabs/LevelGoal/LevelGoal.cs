@@ -25,6 +25,10 @@ public class LevelGoal : MonoBehaviour
 		yield return new WaitForSeconds(0.5f);
 		
 		GameObject.FindGameObjectWithTag("MainCamera").transform.position = new Vector3(0, 0, 1);
+		if(SceneManager.GetActiveScene().name == "Level0")
+		{
+			GameObject.Find("Overlay").GetComponent<Overlay>().Reset();
+		}
 		
 		yield return new WaitForSeconds(1.5f);
 		
