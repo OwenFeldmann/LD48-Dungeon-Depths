@@ -55,6 +55,7 @@ public class Player : MonoBehaviour
         
 		if(transform.position.y <= -300)
 		{//Too deep, time to restart
+			GameObject.Find("Overlay").GetComponent<Overlay>().StopTimer();
 			SceneManager.LoadScene("Level0");
 		}
 		
